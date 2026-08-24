@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class RegistroDeUsuario {
 
@@ -16,26 +18,24 @@ public class RegistroDeUsuario {
         JTextField cajaMatricula = new JTextField(20);
 
         JButton botonIngresar = new JButton("Ingresos");
+        // VIGÍA DEL BOTÓN (Ahora delegado al Controlador)
+        botonIngresar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // 1. Solo extraemos el texto
+                String textoNombre = cajaNombre.getText().trim();
+                String textoMatricula = cajaMatricula.getText().trim();
 
-        // VIGÍA DEL BOTÓN
-        botonIngresar.addActionListener(e -> {
-
-            // 1. Extraemos el texto
-            String textoNombre = cajaNombre.getText().trim();
-            String textoMatricula = cajaMatricula.getText().trim();
-
-            // 2. Llamamos al cerebro (Controlador) y le pasamos los datos
-            RegistroControlador controlador = new RegistroControlador();
-            controlador.procesarRegistro(ventana, textoNombre, textoMatricula);
+                // 2. DELEGAMOS LA RESPONSABILIDAD
+                RegistroControlador controlador = new RegistroControlador();
+                controlador.procesarRegistro(ventana, textoNombre, textoMatricula);
+            }
         });
-
-        // Pegamos las piezas a la ventana
         ventana.add(labelNombre);
         ventana.add(cajaNombre);
         ventana.add(labelMatricula);
         ventana.add(cajaMatricula);
         ventana.add(botonIngresar);
-
         ventana.setVisible(true);
     }
 }

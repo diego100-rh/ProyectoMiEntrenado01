@@ -36,9 +36,11 @@ public class PrimeraPantalla {
         });
 
         btnIniciarSesion.addActionListener(e -> {
-            IniciarSesion retomar = new IniciarSesion();
-            retomar.inicio();
+            // Como aún no hacemos el Login, ponemos un Pop-up temporal
+            JOptionPane.showMessageDialog(ventana, "Ventana de Login en construcción...");
         });
+
+
 
         // 4. Añadimos todo a la ventana
         ventana.add(titulo);
