@@ -1,3 +1,8 @@
+import vista.EdicionAdmin;
+import vista.IniciarSesion;
+import vista.InstrutivodeBienvenida;
+import vista.RegistroDeUsuario;
+
 import javax.swing.*;
 import java.awt.*;
 
