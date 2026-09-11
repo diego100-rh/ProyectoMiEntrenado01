@@ -21,7 +21,15 @@ public class PrimeraPantalla {
         JButton btnRegistrar = new JButton("Registrar");
         JButton btnAyuda = new JButton("¿En qué consiste?");
 
+        JButton btnadmin = new JButton("Iniciar como Administrador");
+
+
         // 3. Conectamos los botones a tus otras clases
+
+        btnadmin.addActionListener(e -> {
+            EdicionAdmin userAdmin = new EdicionAdmin();
+            userAdmin.edicionDeAdmin();
+        });
 
         btnRegistrar.addActionListener (e -> {
             // Llama a la clase que creaste en tu imagen
@@ -40,13 +48,12 @@ public class PrimeraPantalla {
           login.inicio();
         });
 
-
-
         // 4. Añadimos todo a la ventana
         ventana.add(titulo);
         ventana.add(btnIniciarSesion);
         ventana.add(btnRegistrar);
         ventana.add(btnAyuda);
+        ventana.add(btnadmin);
 
         //Centra la ventana exactamente en medio de tu pantalla
         ventana.setLocationRelativeTo(null);
