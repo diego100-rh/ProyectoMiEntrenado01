@@ -1,4 +1,4 @@
-package modelo;
+package datos;
 
 public class GestorDeRutinas {
 }
