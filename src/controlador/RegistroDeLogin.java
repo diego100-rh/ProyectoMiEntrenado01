@@ -1,9 +1,12 @@
 package controlador;
+import datos.GestorUsuariosJSON;
 
-import javax.swing.JFrame;
 
 public class RegistroDeLogin {
 
-   public void procesarLogin(JFrame ventanaActual, String matricula) {
-}
+   public void procesarLogin(String matricula, String contraseña) {
+
+
+
+       }
 }

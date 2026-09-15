@@ -19,7 +19,6 @@ public class GestorAmins {
         for(Administrador ad: admins){
             if (ad.getMatricula().equals(a) && ad.getContraseña().equals(b)){
                 return "Acceso permitido";
-
             }
         }
         return "Credenciales inválidas";
