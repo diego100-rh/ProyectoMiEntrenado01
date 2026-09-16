@@ -24,6 +24,13 @@ public class Usuario {
         return nombre;
     }
 
+    public String getMatricula(){
+        return matricula;
+    }
+
+    public String getContraseña(){
+        return contraseña;
+    }
 
 
 

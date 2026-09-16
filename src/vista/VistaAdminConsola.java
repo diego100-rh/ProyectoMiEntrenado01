@@ -15,6 +15,7 @@ public class VistaAdminConsola {
                     "4. Eliminar un cliente\n" +
                     "5. Cerrar sesión");
 
+
             System.out.print("\nElige una opción: ");
             op = lec.nextInt();
             lec.nextLine();
@@ -22,7 +23,16 @@ public class VistaAdminConsola {
             switch (op){
                 case 1:
                     System.out.println("Listando clientes... ");
-                    revisar.leerUsuarios();
+                    java.util.List<modelo.Usuario> listaClientes = revisar.leerUsuarios();
+                    if (listaClientes.isEmpty()){
+                        System.out.println("Aún no hay clientes registrados en el sistema.");
+                    } else {
+                        for (modelo.Usuario cliente : listaClientes) {
+                            System.out.println("- Nombre: " + cliente.getNombre() +
+                                    " | Matrícula: " + cliente.getMatricula() +
+                                    " | Contraseña: " + cliente.getContraseña());
+                        }
+                    }
                     break;
 
                 case 2:
