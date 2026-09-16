@@ -15,12 +15,14 @@ public class GestorAmins {
         admins.add(new Administrador("21910067124","lia1515"));
     }
 
-    public String validarCredenciales(String a, String b){
+    public boolean validarCredenciales(String a, String b){
+
         for(Administrador ad: admins){
             if (ad.getMatricula().equals(a) && ad.getContraseña().equals(b)){
-                return "Acceso permitido";
+                return true;
             }
         }
-        return "Credenciales inválidas";
+        return false;
     }
+
 }
