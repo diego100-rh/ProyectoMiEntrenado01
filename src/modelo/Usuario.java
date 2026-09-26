@@ -9,12 +9,15 @@ public class Usuario {
     private int edad;
     private double peso;
     private String genero; //F O M
+    private TestFisico.Nivel nivel; //  resultado del test físico
+
     // DATOS OBLIGATORISO DEL TEST
 
     public Usuario(String nombre, String matricula, String contraseña) {
         this.nombre = nombre;
         this.matricula = matricula;
         this.contraseña = contraseña;
+
     }
 
     // Getters
@@ -39,5 +42,9 @@ public class Usuario {
 
     public String getGenero() { return genero; }
     public void setGenero(String genero) { this.genero = genero; }
+
+
+    public TestFisico.Nivel getNivel() { return nivel; }
+    public void setNivel(TestFisico.Nivel nivel) { this.nivel = nivel; }
 
 }
