@@ -1,5 +1,6 @@
 package vista;
 
+import datos.GestorUsuariosCSV;
 import modelo.TestFisico;
 import modelo.Usuario;
 import java.util.Scanner;
@@ -24,5 +25,8 @@ public class VistaTest {
         cliente.setNivel(nivel);
 
         System.out.println("\n¡Test completado! Tu nivel es: " + nivel);
+        // guarda el nivel en el csv
+        GestorUsuariosCSV gestor = new GestorUsuariosCSV();
+        gestor.actualizarUsuario(cliente);
     }
 }
