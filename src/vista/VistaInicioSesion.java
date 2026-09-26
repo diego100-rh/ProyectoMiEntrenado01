@@ -27,6 +27,21 @@ public class VistaInicioSesion {
                     System.out.println("¡Bienvenido de vuelta, " + cliente.getNombre() + "!");
                     clienteEncontrado = true;
 
+                    //PEPE ESTE EL BLOQUE QUE SE AGREGGO OOOOOO PARA QUE LO REVISES DESPUES
+                    if (cliente.getEdad() == 0 || cliente.getPeso() == 0.0 || cliente.getGenero() == null) {
+                        System.out.println("\n[Alerta] Tu perfil físico está incompleto. Necesitamos más datos.");
+                        VistaCompletarPerfil vistaPerfil = new VistaCompletarPerfil();
+                        vistaPerfil.pedirDatosFisicos(cliente, sc);
+                    }
+
+                    if (cliente.getNivel() == null) {
+                        System.out.println("\n[Aviso] Aún no has hecho tu test físico inicial.");
+                        VistaTest vistaTest = new VistaTest();
+                        vistaTest.iniciarTest(cliente, sc);
+                    } else {
+                        System.out.println("\n[Aviso] Test físico ya completado. Nivel: " + cliente.getNivel());
+                    }// FIN DEL BLOQUEEEEEEE REVISALO PEPE
+
                     if (cliente.getEdad() == 0 || cliente.getPeso() == 0.0 || cliente.getGenero() == null) {
                         System.out.println("\n[Alerta] Tu perfil físico está incompleto. Necesitamos más datos.");
 
