@@ -35,10 +35,36 @@ public class VistaDashboardUsuario {
                     System.out.println("Género: " + usuarioLogueado.getGenero());
                     break;
                 case 2:
-                    System.out.println("\n--- MI PLAN DE ENTRENAMIENTO ---");
-                    // Aquí llamamos a tu clase existente que pide los días y arma la rutina
-                    PlanSemanal plan = new PlanSemanal();
-                    plan.generaPlan();
+                    datos.GestorRutinasCSV gestorRutinas = new datos.GestorRutinasCSV();
+                    String rutinaGuardada = gestorRutinas.leerRutina(usuarioLogueado.getMatricula());
+
+                    if (rutinaGuardada != null) {
+                        System.out.println("\n--- MI RUTINA ACTUAL ---");
+                        System.out.println(rutinaGuardada);
+                    } else {
+                        System.out.println("\n[Aviso] Aún no has configurado tus días ni tu rutina.");
+
+                        PlanSemanal plan = new PlanSemanal();
+                        // 1. Pedimos los días
+                        java.util.List<Integer> dias = plan.elegirDias();
+
+                        // 2. Generamos el texto completo de los ejercicios
+                        String rutinaGenerada = plan.generaPlan(dias);
+
+                        // 3. Imprimimos en pantalla para que el usuario la vea
+                        System.out.println(rutinaGenerada);
+
+                        // 4. Guardamos en el nuevo CSV de rutinas
+                        gestorRutinas.guardarRutina(usuarioLogueado.getMatricula(), rutinaGenerada);
+
+                        //  Actualizar los días en el GestorUsuariosCSV
+                        String diasTexto = plan.nombreDia(dias.get(0)) + "-" + plan.nombreDia(dias.get(1)) + "-" +
+                                plan.nombreDia(dias.get(2)) + "-" + plan.nombreDia(dias.get(3));
+                        usuarioLogueado.setDiasDisponibles(diasTexto);
+                        new datos.GestorUsuariosCSV().actualizarUsuario(usuarioLogueado);
+
+                        System.out.println("\n[Éxito] Tu rutina detallada ha sido guardada permanentemente.");
+                    }
                     break;
                 case 3:
                     System.out.println("\nCerrando sesión. ¡Sigue entrenando duro, " + usuarioLogueado.getNombre() + "!");

@@ -22,7 +22,7 @@ public class VistaTest {
         TestFisico test = new TestFisico();
         TestFisico.Nivel nivel = test.calcularNivel(lagartijas, sentadillas, abdominales, cliente.getGenero());
 
-        cliente.setNivel(nivel);
+        cliente.setNivel(nivel.name());
 
         System.out.println("\n¡Test completado! Tu nivel es: " + nivel);
         // guarda el nivel en el csv

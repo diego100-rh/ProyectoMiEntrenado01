@@ -39,37 +39,37 @@ public class Rutinas {
 
     // Sin cálculo de peso: series fijas + rango 8-10 repeticiones
     public String formatearEjercicio(String nombreEjercicio, int series) {
-        return nombreEjercicio + " - " + series + " series x 8-10 repeticiones "
-                + "(elige un peso donde las últimas repeticiones te cuesten)";
+        return " - " + nombreEjercicio + ": " + series + " series x 8-10 reps\n";
     }
 
-    // Imprime el bloque de abdomen por tiempo
-    private void imprimirAbdomen() {
-        System.out.println("ABDOMEN");
+    private String generarAbdomen() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(" [ABDOMEN]\n");
         for (String ejercicio : elegirEjerciciosRandom(ejerciciosAbdomen, 2)) {
-            System.out.println(ejercicio + " - 3 series x 45 segundos");
+            sb.append(" - ").append(ejercicio).append(": 3 series x 45 segundos\n");
         }
+        return sb.toString();
     }
 
-    // GENERAR DÍAS
-    // Abdomen se incluye en el día de pecho y en el día de brazo.
-    public void generarDiaPecho() {
-        System.out.println("PECHO");
+    public String generarDiaPecho() {
+        StringBuilder sb = new StringBuilder();
         for (String ejercicio : elegirEjerciciosRandom(ejerciciosPecho, 3)) {
-            System.out.println(formatearEjercicio(ejercicio, 3));
+            sb.append(formatearEjercicio(ejercicio, 3));
         }
-        imprimirAbdomen();
+        sb.append(generarAbdomen());
+        return sb.toString();
     }
 
-    public void generarDiaEspalda() {
-        System.out.println("ESPALDA");
+    public String generarDiaEspalda() {
+        StringBuilder sb = new StringBuilder();
         for (String ejercicio : elegirEjerciciosRandom(ejerciciosEspalda, 3)) {
-            System.out.println(formatearEjercicio(ejercicio, 3));
+            sb.append(formatearEjercicio(ejercicio, 3));
         }
+        return sb.toString();
     }
 
-    public void generarDiaBrazo() {
-        System.out.println("BRAZO Y ABDOMEN");
+    public String generarDiaBrazo() {
+        StringBuilder sb = new StringBuilder();
         List<String> ejerciciosDelDia = new ArrayList<>();
         ejerciciosDelDia.addAll(elegirEjerciciosRandom(ejerciciosBiceps, 2));
         ejerciciosDelDia.addAll(elegirEjerciciosRandom(ejerciciosTriceps, 2));
@@ -77,13 +77,14 @@ public class Rutinas {
         ejerciciosDelDia.addAll(elegirEjerciciosRandom(ejerciciosAntebrazo, 1));
 
         for (String ejercicio : ejerciciosDelDia) {
-            System.out.println(formatearEjercicio(ejercicio, 3));
+            sb.append(formatearEjercicio(ejercicio, 3));
         }
-        imprimirAbdomen();
+        sb.append(generarAbdomen());
+        return sb.toString();
     }
 
-    public void generarDiaPierna() {
-        System.out.println("PIERNA Y ABDOMEN");
+    public String generarDiaPierna() {
+        StringBuilder sb = new StringBuilder();
         List<String> ejerciciosDelDia = new ArrayList<>();
         ejerciciosDelDia.addAll(elegirEjerciciosRandom(ejerciciosCuadriceps, 2));
         ejerciciosDelDia.addAll(elegirEjerciciosRandom(ejerciciosIsquios, 2));
@@ -92,7 +93,8 @@ public class Rutinas {
         ejerciciosDelDia.addAll(elegirEjerciciosRandom(ejerciciosGluteo, 1));
 
         for (String ejercicio : ejerciciosDelDia) {
-            System.out.println(formatearEjercicio(ejercicio, 3));
+            sb.append(formatearEjercicio(ejercicio, 3));
         }
+        return sb.toString();
     }
 }

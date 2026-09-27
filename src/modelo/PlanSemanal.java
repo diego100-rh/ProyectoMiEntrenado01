@@ -55,26 +55,23 @@ public class PlanSemanal {
         }
     }
 
-   public void  generaPlan(){
-        Rutinas rutinas= new Rutinas();
- //PlanSemanal crea un objeto en memoria con todas las listas de ejercicios precargadas de la clase Rutinas.
-       List<Integer> diasElegidos = elegirDias();
+    public String generaPlan(List<Integer> diasElegidos){
+        Rutinas rutinas = new Rutinas();
+        StringBuilder planCompleto = new StringBuilder();
 
-       System.out.println();
-       System.out.println(nombreDia(diasElegidos.get(0)) + ":");
-       rutinas.generarDiaPecho();
+        planCompleto.append("\n").append(nombreDia(diasElegidos.get(0))).append(" (PECHO):\n");
+        planCompleto.append(rutinas.generarDiaPecho());
 
-       System.out.println();
-       System.out.println(nombreDia(diasElegidos.get(1)) + ":");
-       rutinas.generarDiaEspalda();
+        planCompleto.append("\n").append(nombreDia(diasElegidos.get(1))).append(" (ESPALDA):\n");
+        planCompleto.append(rutinas.generarDiaEspalda());
 
-       System.out.println();
-       System.out.println(nombreDia(diasElegidos.get(2)) + ":");
-       rutinas.generarDiaBrazo();
+        planCompleto.append("\n").append(nombreDia(diasElegidos.get(2))).append(" (BRAZO):\n");
+        planCompleto.append(rutinas.generarDiaBrazo());
 
-       System.out.println();
-       System.out.println(nombreDia(diasElegidos.get(3)) + ":");
-       rutinas.generarDiaPierna();
+        planCompleto.append("\n").append(nombreDia(diasElegidos.get(3))).append(" (PIERNA):\n");
+        planCompleto.append(rutinas.generarDiaPierna());
 
-   }
+        return planCompleto.toString();
+
+    }
 }

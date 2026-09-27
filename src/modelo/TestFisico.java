@@ -16,7 +16,6 @@ public class TestFisico {
             } else {
                 return 3;
             }
-            //esto son los numeros de reps femininos
         } else {
             if (reps < 8) {
                 return 1;
@@ -37,7 +36,6 @@ public class TestFisico {
             } else {
                 return 3;
             }
-            //esto son los numeros de reps femininos
         } else {
             if (reps < 20) {
                 return 1;
@@ -58,7 +56,6 @@ public class TestFisico {
             } else {
                 return 3;
             }
-            //esto son los numeros de reps femininos
         } else {
             if (reps < 20) {
                 return 1;
@@ -71,13 +68,13 @@ public class TestFisico {
     }
 
     public Nivel calcularNivel(int lagartijas, int sentadilla, int abdominales, String genero) {
-        int total = puntosAbdominales(abdominales, genero) + puntosSentadilla(sentadilla,genero)+ puntosLagartijas(lagartijas,genero);
+        int total = puntosAbdominales(abdominales, genero) + puntosSentadilla(sentadilla, genero) + puntosLagartijas(lagartijas, genero);
 
-        if (total <= 5){
+        if (total <= 5) {
             return Nivel.PRINCIPIANTE;
-        }else if(total<=7){
+        } else if (total <= 7) {
             return Nivel.INTERMEDIO;
-        }else {
+        } else {
             return Nivel.AVANZADO;
         }
     }
