@@ -40,7 +40,7 @@ public class Rutinas {
     // Sin cálculo de peso: series fijas + rango 8-10 repeticiones
     public String formatearEjercicio(String nombreEjercicio, int series) {
         return nombreEjercicio + " - " + series + " series x 8-10 repeticiones "
-                + "(elige un peso donde las últimas repeticiones te cuesten)";
+                + "(elije un peso donde las últimas repeticiones te cuesten)";
     }
 
     // Imprime el bloque de abdomen por tiempo

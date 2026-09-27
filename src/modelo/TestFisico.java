@@ -51,7 +51,7 @@ public class TestFisico {
 
     public int puntosAbdominales(int reps, String genero) {
         if (genero.equals("M")) {
-            if (reps < 25) {
+            if (reps <  25) {
                 return 1;
             } else if (reps < 39) {
                 return 2;
@@ -60,7 +60,7 @@ public class TestFisico {
             }
             //esto son los numeros de reps femininos
         } else {
-            if (reps < 20) {
+            if (reps <= 20) {
                 return 1;
             } else if (reps < 34) {
                 return 2;
