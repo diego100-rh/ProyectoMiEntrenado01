@@ -43,7 +43,6 @@ public class Usuario {
     public String getGenero() { return genero; }
     public void setGenero(String genero) { this.genero = genero; }
 
-
     public TestFisico.Nivel getNivel() { return nivel; }
     public void setNivel(TestFisico.Nivel nivel) { this.nivel = nivel; }
 
