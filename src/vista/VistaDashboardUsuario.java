@@ -38,6 +38,9 @@ public class VistaDashboardUsuario {
                     datos.GestorRutinasCSV gestorRutinas = new datos.GestorRutinasCSV();
                     String rutinaGuardada = gestorRutinas.leerRutina(usuarioLogueado.getMatricula());
 
+                    System.out.println("\nNOTA: en cada ejercicio, elige un peso con el que las últimas repeticiones del rango indicado te cuesten realizar, pero sin perder la técnica. Si te resultan muy fáciles, sube el peso la próxima sesión; si no logras completar el rango, bájalo.");
+
+
                     if (rutinaGuardada != null) {
                         System.out.println("\n--- MI RUTINA ACTUAL ---");
                         System.out.println(rutinaGuardada);
