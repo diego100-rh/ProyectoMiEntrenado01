@@ -41,7 +41,6 @@ public class Rutinas {
     public String formatearEjercicio(String nombreEjercicio, int series) {
         return nombreEjercicio + " - " + series + " series x 8-10 repeticiones "
                 + "(elije un peso donde las últimas repeticiones te cuesten)";
-        return " - " + nombreEjercicio + ": " + series + " series x 8-10 reps\n";
     }
 
     private String generarAbdomen() {
