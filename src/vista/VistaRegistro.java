@@ -25,11 +25,15 @@ public class VistaRegistro {
                 continue; // Vuelve al inicio del do-while
             }
 
-            //  Guardamos los datos a través del controlador
-            gestor.procesarRegistro(nombre, mat, contra);
-            System.out.println("¡Registro exitoso! Bienvenido usuario: " + nombre);
+            boolean registroExitoso = gestor.procesarRegistro(nombre, mat, contra);
 
-            esValido = true;
+            if (registroExitoso) {
+                System.out.println("¡Registro exitoso! Bienvenido usuario: " + nombre);
+                esValido = true;
+            }else{
+
+                System.out.println("Error: La matrícula '" + mat + "' ya existe. Intente con otra.");
+            }
 
         } while (!esValido);
 

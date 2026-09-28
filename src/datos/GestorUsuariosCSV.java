@@ -1,6 +1,5 @@
 package datos;
 
-import modelo.TestFisico;
 import modelo.Usuario;
 import java.io.*;
 import java.util.ArrayList;
@@ -35,9 +34,15 @@ public class GestorUsuariosCSV {
                     }
                     // esta es la nueva columna pepe para que la revises
                     if (datos.length >= 7 && !datos[6].equalsIgnoreCase("null")) {
-                        u.setNivel(TestFisico.Nivel.valueOf(datos[6].toUpperCase()));
+                        u.setNivel(datos[6]);
                     }
                     usuarios.add(u);
+
+                    if (datos.length >= 8) {
+                        if (!datos[7].equals("null")) {
+                            u.setDiasDisponibles(datos[7]);
+                        }
+                    }
                 }
             }
         } catch (FileNotFoundException e) {
@@ -63,8 +68,8 @@ public class GestorUsuariosCSV {
                     .append(u.getEdad()).append(DELIMITADOR)
                     .append(u.getPeso()).append(DELIMITADOR)
                     .append(u.getGenero()).append(DELIMITADOR)
-                    .append(u.getNivel() != null ? u.getNivel() : "null"); // NUEVO
-
+                    .append(u.getNivel()).append(DELIMITADOR)
+                    .append(u.getDiasDisponibles());
 
 
             // Escribimos la línea y damos un salto de línea para el próximo usuario
@@ -103,7 +108,8 @@ public class GestorUsuariosCSV {
                             .append(u.getEdad()).append(DELIMITADOR)
                             .append(u.getPeso()).append(DELIMITADOR)
                             .append(u.getGenero()).append(DELIMITADOR)
-                            .append(u.getNivel() != null ? u.getNivel() : "null"); // NUEVO
+                            .append(u.getNivel()).append(DELIMITADOR)
+                            .append(u.getDiasDisponibles());
 
 
                     escritor.write(lineaCsv.toString());

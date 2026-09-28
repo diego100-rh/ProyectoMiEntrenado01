@@ -32,6 +32,8 @@ public class VistaInicioSesion {
                         System.out.println("\n[Alerta] Tu perfil físico está incompleto. Necesitamos más datos.");
                         VistaCompletarPerfil vistaPerfil = new VistaCompletarPerfil();
                         vistaPerfil.pedirDatosFisicos(cliente, sc);
+                    } else {
+                        System.out.println("[Aviso] Tu perfil físico básico está completo.");
                     }
 
                     if (cliente.getNivel() == null) {
@@ -42,20 +44,11 @@ public class VistaInicioSesion {
                         System.out.println("\n[Aviso] Test físico ya completado. Nivel: " + cliente.getNivel());
                     }// FIN DEL BLOQUEEEEEEE REVISALO PEPE
 
-                    if (cliente.getEdad() == 0 || cliente.getPeso() == 0.0 || cliente.getGenero() == null) {
-                        System.out.println("\n[Alerta] Tu perfil físico está incompleto. Necesitamos más datos.");
+                    // Llamamos al Dashboard principal pasándole el usuario actual
+                    VistaDashboardUsuario dashboard = new VistaDashboardUsuario();
+                    dashboard.mostrarDashboard(cliente, sc);
 
-                        VistaCompletarPerfil vistaPerfil = new VistaCompletarPerfil();
-                        vistaPerfil.pedirDatosFisicos(cliente, sc);
-
-                    } else {
-                        System.out.println("\n[Aviso] Tu perfil físico está completo. (Redirigiendo al Dashboard...)");
-                    }
-
-                    // TODO: Aquí más adelante llamaremos a la vista del perfil del cliente
-                    // Ejemplo: vistaDashboardCliente.mostrar();
-
-                    break; // Cortamos el bucle, ya no necesitamos seguir buscando
+                    break;
                 }
             }
         }
