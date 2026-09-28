@@ -20,7 +20,6 @@ public class Usuario {
         this.contraseña = contraseña;
 
     }
-
     // Getters
     public String getNombre() {
         return nombre;
