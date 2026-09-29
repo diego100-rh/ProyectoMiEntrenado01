@@ -1,68 +1,33 @@
 package vista;
+import javax.swing.*;
+public class VistaLogin extends JFrame {
 
-import datos.GestorAdmins;
-import datos.GestorUsuariosCSV;
+    public VistaLogin(){
+        setTitle("Campus-Fit ");
+        setSize(400, 450); // Ancho de 400px y alto de 450px
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //MATAR AL APRETAR LA X
+        setLayout(null);//desactivar organizador automatico
+        setLocationRelativeTo(null);//aparecer en el centro de la pantalla
+        //TITULO
+        JLabel lblTitulo = Herramientas.crearLabels(18,"Bienvenido a tu gym personal :) ",60,30,300,40);
+        // Botones (basados en diagrama: Inicio, Registro y Ayuda)
+        JButton btnInicio = Herramientas.crearBoton("Inicio de sesión", 100, 120, 200, 40, null);
+        JButton btnRegistro = Herramientas.crearBoton("Registro", 100, 180, 200, 40, null);//null por ahora
+        JButton btnAyuda = Herramientas.crearBoton("Instructivo de ayuda", 100, 240, 200, 40, e -> btnInstructivo());
 
-import java.util.Scanner;
 
-public  class VistaLogin {
+        add(lblTitulo);
+        add(btnInicio);
+        add(btnRegistro);
+        add(btnAyuda);
 
-       public void inicio(Scanner lec) {
-//              Scanner lec = new Scanner(System.in);
-              VistaInicioSesion inSesion = new VistaInicioSesion();
-              VistaRegistro revisionre = new VistaRegistro();
-              VistaAdminConsola perfilAdmin = new VistaAdminConsola();
-              GestorAdmins admin = new GestorAdmins();
-              int op = 0;
-              boolean esValido = false;
-              do {
-                     System.out.println("--- MENÚ DEL GIMNASIO ---");
-                      System.out.println("\n1. Iniciar sesion\n" +
-                             "2. Registro\n" + "3. Iniciar como admin\n" + "4. Salir");
+        // Encender
+        setVisible(true);
 
-                     System.out.print("\nElige una opción: ");
-                     op = lec.nextInt();
-                     lec.nextLine();
+    }
+    public void btnInstructivo(){
+       vistaInstructivoAyuda btnAyuda = new vistaInstructivoAyuda();
+       btnAyuda.mostrarVentana();
+    }
 
-                     switch (op) {
-                            case 1:
-                                   System.out.println("Iniciando sesion....");
-                                   inSesion.inicioSesion(lec);
-                                   break;
-                            case 2:
-                                   System.out.println("Registrando...");
-                                    revisionre.iniciarregistro();
-                                   break;
-                            case 3:
-                                   System.out.println("\nBienvenido al perfinl de administracion: ");
-                                   System.out.print("\nIngrese su Nombre:");
-                                   String nombre = lec.nextLine();
-                                   System.out.print("Ingrese su matrícula:");
-                                   String mat = lec.nextLine();
-                                   System.out.print("Ingrese su contraseña:");
-                                   String contra = lec.nextLine();
-                                   if (nombre.isEmpty() || mat.isEmpty() || contra.isEmpty()) {
-                                          System.out.println("Error: Ningún campo puede estar vacío.");
-                                          continue; // Repite el bucle sin cambiar esValido
-                                   }
-                                   boolean ValifacionAdm = admin.validarCredenciales(mat, contra);
-
-                                   if (ValifacionAdm){
-                                          System.out.println("¡Bienvenido Administrador " + mat + "!");
-                                          perfilAdmin.panelDeAdministracion();
-
-                                   }else {
-                                          System.out.println("Error: Administrador no dectectado.");
-                                           inicio(lec);
-                                   }
-                                   break;
-                            case 4:
-                                   System.out.println("\nSaliendo del sistema...");
-                                   break;
-                            default:
-                                   System.out.println("\nError: Opción no válida. Intente nuevamente.");
-                     }
-
-              }while (op != 4) ;
-       }
 }
