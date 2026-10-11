@@ -30,6 +30,19 @@ public class Herramientas {
         return txt;
     }
 
+    public static JLabel crearImagen(String ruta, int x, int y, int ancho, int alto) {
+        // System.getProperty("user.dir") busca la ruta base de tu proyecto
+        String path = System.getProperty("user.dir") + ruta;
+        ImageIcon iconoOriginal = new ImageIcon(path);
+
+        // SCALE_SMOOTH renderiza la imagen para que no se vea pixelada al cambiarle el tamaño
+        Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
+
+        JLabel labelImagen = new JLabel(new ImageIcon(imagenEscalada));
+        labelImagen.setBounds(x, y, ancho, alto);
+        return labelImagen;
+    }
+
     public static JPasswordField crearTextoContraseña(int x, int y,int largo, int alto){
         JPasswordField clave = new JPasswordField();
         clave.setBounds(x, y, largo, alto);

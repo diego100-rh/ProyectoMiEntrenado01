@@ -12,16 +12,19 @@ public class vistaInstructivoAyuda extends JFrame{
         setLocationRelativeTo(null);
         //JtextArea ideal para mostrar arto teto en lieas
         JTextArea textoAyuda = new JTextArea();
-        textoAyuda.setText("¡Bienvenido a Campus-Fit!\n\n" +
-                "1. Si eres nuevo, ve a Registro.\n" +
+        textoAyuda.setText("1. Si eres nuevo, ve a Registro.\n" +
                 "2. Inicia sesión con tu matrícula.\n" +
                 "3. Realiza tu test físico para comenzar.");
+
+        JLabel logo = Herramientas.crearImagen("/Recursos/logo-gym2.png", 100, 50, 286, 286);
+
         textoAyuda.setBounds(50, 50, 300, 200);
         textoAyuda.setFont(new Font("Arial", Font.PLAIN, 14));
         textoAyuda.setEditable(false); //  solo pueda leer, no borrar el texto
         textoAyuda.setBackground(null); // Quita el fondo blanco para que se mezcle con la ventana
 
         add(textoAyuda);
+        add(logo);
         setVisible(true);
 
 
