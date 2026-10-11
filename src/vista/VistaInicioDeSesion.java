@@ -10,7 +10,8 @@ public class VistaInicioDeSesion extends JFrame {
     public void mostrarventaSesion(){
 
         setTitle("Iniciando Sesion ¡Hola Denuevo! ");
-        setSize(400, 450);
+        setResizable(false);
+        setSize(500, 500);
         setLayout(null);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

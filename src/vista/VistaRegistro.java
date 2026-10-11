@@ -9,8 +9,9 @@ public class VistaRegistro extends JFrame {
 
     public void mostrarVentanaRegistro(){
         setTitle("Regitro de usuarios nuevos ");
-        setSize(400, 450);
+        setSize(500, 550);
         setLayout(null);
+        setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
