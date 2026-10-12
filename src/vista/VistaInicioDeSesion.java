@@ -35,7 +35,10 @@ public class VistaInicioDeSesion extends JFrame {
             if ( textpassword.isEmpty() || textmatricula.isEmpty()) {
                 JOptionPane.showMessageDialog(VistaInicioDeSesion.this, "Por favor, complete todos los campos.", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
                 return;
-            } /// SI LOS CAMPOS ESTAN COMPLETOS SEDEBE REVISAR EN EL CSV SI ESTA EL USARIO GUARDADO
+            }
+            VistaMenuGym menuGym = new VistaMenuGym();
+            menuGym.mostrarVentanaGym();
+            /// SI LOS CAMPOS ESTAN COMPLETOS SEDEBE REVISAR EN EL CSV SI ESTA EL USARIO GUARDADO
             // 2. Trabajo del Controlador (Lo conectaremos a futuro)
             // Si el código logró esquivar el "return" y llegó hasta esta línea,
             // significa que las cajas SÍ tienen texto escrito. Aquí llamaremos al Controlador:
