@@ -47,6 +47,8 @@ public class VistaMenuGym extends JFrame {
 //
     }
 
+
+
     private void btnPlanSemanalAccion() {
         VistaGestorRutina gestor = new VistaGestorRutina();
         gestor.mostrarventa();
