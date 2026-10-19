@@ -6,7 +6,16 @@ import modelo.TestFisico;
 import javax.swing.*;
 import java.awt.*;
 
+
+/**
+ * Solicita las repeticiones del test físico inicial.
+ * Es una ventana modal: bloquea el menú mientras permanece abierta.
+ */
+
+
 public class VistaTestFisico extends JDialog {
+
+    // Asocia el formulario al menú y al controlador del test.
 
     private final TestFisicoControlador controlador;
 
@@ -23,7 +32,7 @@ public class VistaTestFisico extends JDialog {
 
         construirVentana();
     }
-
+    // Crea los campos de repeticiones y el botón para completar el test.
     private void construirVentana() {
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -76,6 +85,9 @@ public class VistaTestFisico extends JDialog {
         pack();
         setLocationRelativeTo(getOwner());
     }
+
+    // Envía las respuestas al controlador y muestra el resultado.
+// Cierra el formulario únicamente si el resultado se guardó correctamente.
 
     private void completarTest() {
         try {

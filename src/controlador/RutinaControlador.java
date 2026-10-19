@@ -8,12 +8,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+/**
+ * Coordina la consulta y creación de la rutina del usuario.
+ * Valida los días elegidos y delega la generación y el guardado.
+ */
 
 public class RutinaControlador {
 
     private final Usuario usuario;
     private final PlanSemanal planSemanal;
     private final GestorRutinasCSV gestor;
+
+    // Vincula el controlador con el usuario que inició sesión.
 
     public RutinaControlador(Usuario usuario) {
         if (usuario == null) {

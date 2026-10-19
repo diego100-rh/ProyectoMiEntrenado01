@@ -4,11 +4,18 @@ import datos.GestorUsuariosCSV;
 import modelo.TestFisico;
 import modelo.Usuario;
 
+/**
+ * Coordina la validación y el guardado del test físico inicial.
+ * Comprueba si el usuario tiene un nivel reconocido antes de acceder a su rutina.
+ */
+
 public class TestFisicoControlador {
 
     private final Usuario usuario;
     private final TestFisico test = new TestFisico();
     private final GestorUsuariosCSV gestor = new GestorUsuariosCSV();
+
+    // Vincula el test con el usuario que inició sesión.
 
     public TestFisicoControlador(Usuario usuario) {
         if (usuario == null) {
@@ -71,6 +78,8 @@ public class TestFisicoControlador {
 
         return nivel;
     }
+
+    // Convierte el texto a un número entero y rechaza valores negativos.
 
     private int convertirRepeticiones(String texto) {
         int repeticiones;

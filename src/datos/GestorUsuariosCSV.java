@@ -5,6 +5,12 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Gestiona la lectura, el registro y la actualización de usuarios en CSV.
+ * Conserva sus credenciales, datos físicos y resultado del test.
+ */
+
 public class GestorUsuariosCSV {
     private final String RUTA_ARCHIVO = "usuarios.csv";
     private final String DELIMITADOR = ","; // Lo que separa nuestras columnas
@@ -81,7 +87,8 @@ public class GestorUsuariosCSV {
         }
     }
 
-    // Método para actualizar un usuario existente en el archivo CSV
+    // Busca al usuario por su matrícula y actualiza sus datos en el CSV.
+    // Informa un error si no lo encuentra o si falla la escritura.
     public void actualizarUsuario(Usuario usuarioModificado) {
         // Leemos todos los usuarios actuales
         List<Usuario> todosLosUsuarios = leerUsuarios();

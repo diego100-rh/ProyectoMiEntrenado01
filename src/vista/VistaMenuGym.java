@@ -5,6 +5,12 @@ import modelo.Usuario;
 import javax.swing.*;
 import java.awt.*;
 
+
+/**
+ * Presenta las opciones principales al usuario autenticado.
+ * Permite acceder al progreso, gestionar la rutina y cerrar la sesión.
+ */
+
 public class VistaMenuGym extends JFrame {
     private JButton btnMiprogreso;
     private JButton btnPlanSemanal;
@@ -58,6 +64,8 @@ public class VistaMenuGym extends JFrame {
     }
 
 
+    // Solicita el test si está pendiente y abre el gestor solo al completarlo.
+// Si el usuario ya tiene un nivel reconocido, accede directamente al gestor.
 
     private void btnPlanSemanalAccion() {
         TestFisicoControlador testControlador =

@@ -7,6 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * Permite seleccionar los días de entrenamiento y visualizar la rutina.
+ * Utiliza RutinaControlador para consultar y guardar los datos.
+ */
 
 public class VistaGestorRutina extends JFrame {
 
@@ -17,9 +21,13 @@ public class VistaGestorRutina extends JFrame {
     private JButton btnGenerar;
     private JLabel lblEstado;
 
+    // Prepara el controlador con los datos del usuario autenticado.
+
     public VistaGestorRutina(Usuario usuario) {
         controlador = new RutinaControlador(usuario);
     }
+
+    // Construye la ventana y carga la rutina guardada, si existe.
 
     public void mostrarventa() {
         setTitle("Mi rutina - Campus-Fit");
