@@ -23,7 +23,7 @@ public class VistaMiPeso extends JFrame {
         cajapeso.setBounds(150, 220, 200, 30);
         add(cajapeso);
 
-        JButton btnguardar = Herramientas.crearBoton("Inicio de sesión", 150, 280, 200, 40, e-> historialmensual());
+        JButton btnguardar = Herramientas.crearBoton("Guardar", 150, 280, 200, 40, e-> historialmensual());
 
         setVisible(true);
         add(btnguardar);

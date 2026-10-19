@@ -20,6 +20,7 @@ public class GestorAdmins {
         for(Administrador ad: admins){
             if (ad.getMatricula().equals(a) && ad.getContraseña().equals(b)){
                 return true;
+
             }
         }
         return false;

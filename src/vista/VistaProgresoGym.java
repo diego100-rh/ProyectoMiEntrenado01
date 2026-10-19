@@ -31,7 +31,7 @@ public class VistaProgresoGym extends JFrame {
 
     }
     public void btnevoFuerza(){
-        VistaMiPeso btnFuerza =new VistaMiPeso();
+        VistaMiFuerza btnFuerza =new VistaMiFuerza();
         btnFuerza.mostrarVentana();
 
     }

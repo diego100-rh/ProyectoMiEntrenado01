@@ -33,7 +33,7 @@ public class RegistroControlador {
             // guardar
             // 3. ¡Guardar en base de datos (CSV)!
             gestorCSV.guardarUsuario(nuevoUsuario);
-
+// CAMBIAR:
             JOptionPane.showMessageDialog(vista, "¡Registro exitoso! Bienvenido a Campus-Fit.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             vista.dispose(); // Cierra la ventana de registro
 

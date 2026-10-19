@@ -1,5 +1,8 @@
 package vista;
 
+import controlador.loginControlador;
+import datos.GestorAdmins;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -57,7 +60,18 @@ public class VistaInicioDeSesion extends JFrame {
             }
 
             // Aquí conectaremos el LoginControlador en el siguiente paso
-            // loginControlador.verificarCredenciales(textmatricula, textpassword);
+            GestorAdmins admins = new GestorAdmins();
+            //  ========================================================================== SOLO DE PRUEBA
+             boolean acceso = admins.validarCredenciales(textmatricula, textpassword);
+             if (acceso) {
+                 this.dispose(); // cerrar la ventana de login actual
+                 VistaMenuGym menuGym = new VistaMenuGym();
+                  menuGym.mostrarVentanaGym();
+             } else {
+                 JOptionPane.showMessageDialog(VistaInicioDeSesion.this, "Error: incicio sesion fallido.", "Error de usuario", JOptionPane.ERROR_MESSAGE);
+             }
+//          //  ========================================================================== SOLO DE PRUEBA
+//
         });
 
         setVisible(true);

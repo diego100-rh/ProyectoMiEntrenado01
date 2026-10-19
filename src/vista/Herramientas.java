@@ -22,7 +22,6 @@ public class Herramientas {
 //        textA.setBackground(null); // Quita el fondo blanco para que se mezcle con la ventana
 //        return textA;
 //    }
-
     public static JTextField crearTexto(int x,int y, int largo, int alto){
         JTextField txt = new JTextField();
         txt.setBounds(x, y, largo, alto);
