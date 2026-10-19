@@ -96,6 +96,12 @@ public class GestorUsuariosCSV {
             }
         }
 
+        if (!encontrado) {
+            throw new IllegalStateException(
+                    "No se encontró al usuario para guardar el resultado del test."
+            );
+        }
+
         // Si lo encontramos, sobrescribimos todo el archivo CSV
         if (encontrado) {
             try (BufferedWriter escritor = new BufferedWriter(new FileWriter(RUTA_ARCHIVO, false))) {
@@ -116,7 +122,7 @@ public class GestorUsuariosCSV {
                     escritor.newLine();
                 }
             } catch (IOException e) {
-                System.out.println("Error al intentar actualizar el CSV: " + e.getMessage());
+                throw new IllegalStateException("No se pudo guardar el resultado del test.", e);
             }
         }
     }

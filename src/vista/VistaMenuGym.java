@@ -1,5 +1,6 @@
 package vista;
 
+import controlador.TestFisicoControlador;
 import modelo.Usuario;
 import javax.swing.*;
 import java.awt.*;
@@ -9,6 +10,7 @@ public class VistaMenuGym extends JFrame {
     private JButton btnPlanSemanal;
     private JButton btnCerrarSesion;
     private Usuario usuarioActual;
+
 
     // Conserva al usuario que inició sesión para consultar sus datos.
     public void setUsuarioActual(Usuario usuarioActual) {
@@ -58,7 +60,24 @@ public class VistaMenuGym extends JFrame {
 
 
     private void btnPlanSemanalAccion() {
-        VistaGestorRutina gestor = new VistaGestorRutina();
+        TestFisicoControlador testControlador =
+                new TestFisicoControlador(usuarioActual);
+
+        // Si falta el test, abre la ventana y espera a que se cierre.
+        if (!testControlador.tieneTestRealizado()) {
+            VistaTestFisico ventanaTest =
+                    new VistaTestFisico(this, testControlador);
+
+            ventanaTest.setVisible(true);
+        }
+
+        // Si cerró el test sin completarlo, permanece en el menú.
+        if (!testControlador.tieneTestRealizado()) {
+            return;
+        }
+
+        // Con el test completo, permite consultar o generar la rutina.
+        VistaGestorRutina gestor = new VistaGestorRutina(usuarioActual);
         gestor.mostrarventa();
     }
 

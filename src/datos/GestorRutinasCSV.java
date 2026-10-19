@@ -14,23 +14,30 @@ public class GestorRutinasCSV {
             escritor.write(matricula + DELIMITADOR + rutinaParaCSV);
             escritor.newLine();
         } catch (IOException e) {
-            System.out.println("Error al guardar la rutina: " + e.getMessage());
+            throw new IllegalStateException("No se pudo guardar la rutina.", e);
         }
     }
 
     public String leerRutina(String matricula) {
-        try (BufferedReader lector = new BufferedReader(new FileReader(RUTA_ARCHIVO))) {
+        try (BufferedReader lector =
+                     new BufferedReader(new FileReader(RUTA_ARCHIVO))) {
+
             String linea;
+
             while ((linea = lector.readLine()) != null) {
-                String[] datos = linea.split(DELIMITADOR);
-                if (datos[0].equals(matricula)) {
-                    // Restauramos los saltos de línea para que se vea bien en consola
+                String[] datos = linea.split(DELIMITADOR, 2);
+
+                if (datos.length == 2 && datos[0].equals(matricula)) {
                     return datos[1].replace("@@", "\n");
                 }
             }
+
+        } catch (FileNotFoundException e) {
+            return null;
         } catch (IOException e) {
-            // Si el archivo no existe, retornamos null
+            throw new IllegalStateException("No se pudo leer la rutina.", e);
         }
+
         return null;
     }
 }
