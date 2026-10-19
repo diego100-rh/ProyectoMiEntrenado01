@@ -1,11 +1,16 @@
 package datos;
 
 import java.io.*;
+/**
+ * Guarda y recupera las rutinas en rutinas.csv.
+ * Cada rutina se identifica mediante la matrícula del usuario.
+ */
 
 public class GestorRutinasCSV {
     private final String RUTA_ARCHIVO = "rutinas.csv";
     private final String DELIMITADOR = ";";
 
+    // Añade una rutina al CSV y reemplaza los saltos de línea por @@.
     public void guardarRutina(String matricula, String rutinaCompleta) {
         // Reemplazamos saltos de línea para que todo quepa
         String rutinaParaCSV = rutinaCompleta.replace("\n", "@@");
@@ -18,6 +23,8 @@ public class GestorRutinasCSV {
         }
     }
 
+    // Recupera la primera rutina de la matrícula indicada.
+   // Restaura los saltos de línea y devuelve null si no encuentra una rutina.
     public String leerRutina(String matricula) {
         try (BufferedReader lector =
                      new BufferedReader(new FileReader(RUTA_ARCHIVO))) {
