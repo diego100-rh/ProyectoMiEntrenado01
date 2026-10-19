@@ -50,7 +50,7 @@ public class VistaMenuGym extends JFrame {
     }
     private void btnMiprogresoAccion() {
         // En un futuro, el controlador inyectará los datos del usuario aquí
-        VistaProgresoGym progreso = new VistaProgresoGym();
+        VistaProgresoGym progreso = new VistaProgresoGym(usuarioActual);
         progreso.mostrarventa(); // Asegúrate de que el método se llame así en la otra clase
 //
     }
