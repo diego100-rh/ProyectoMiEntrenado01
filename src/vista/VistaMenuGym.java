@@ -1,5 +1,6 @@
 package vista;
 
+import modelo.Usuario;
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,6 +8,12 @@ public class VistaMenuGym extends JFrame {
     private JButton btnMiprogreso;
     private JButton btnPlanSemanal;
     private JButton btnCerrarSesion;
+    private Usuario usuarioActual;
+
+    // Conserva al usuario que inició sesión para consultar sus datos.
+    public void setUsuarioActual(Usuario usuarioActual) {
+        this.usuarioActual = usuarioActual;
+    }
 
     public void mostrarVentanaGym(){
 
