@@ -7,52 +7,61 @@ public class VistaInicioDeSesion extends JFrame {
     private JTextField cajamatricula;
     private JTextField cajacontraseña;
 
-    public void mostrarventaSesion(){
-
-        setTitle("Iniciando Sesion ¡Hola Denuevo! ");
-        setResizable(false);
+    public void mostrarVentaSesion() {
+        setTitle("Iniciando Sesión ¡Hola de nuevo!");
         setSize(500, 500);
-        setLayout(null);
+        setResizable(false);
+        setLayout(null); // Apagamos el organizador
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        getContentPane().setBackground(Color.WHITE); // Fondo limpio
 
-        cajamatricula = new JTextField(20);
+        JLabel titulo = new JLabel("Iniciar Sesión", SwingConstants.CENTER);
+        titulo.setFont(new Font("Arial", Font.BOLD, 24));
+        titulo.setBounds(150, 40, 200, 30);
+        add(titulo);
+
+        // Opcional: Agregar el logo aquí (y: 80, alto: 100) para que no quede tan vacío arriba
+
+
+        JLabel lblMatricula = new JLabel("Matrícula:");
+        lblMatricula.setBounds(150, 200, 200, 20);
+        add(lblMatricula);
+
+        cajamatricula = new JTextField();
+        cajamatricula.setBounds(150, 220, 200, 30);
         add(cajamatricula);
 
-        cajacontraseña = new JTextField(20);
+
+        JLabel lblContra = new JLabel("Contraseña:");
+        lblContra.setBounds(150, 270, 200, 20);
+        add(lblContra);
+
+        // JPasswordField en lugar de JTextField para que salgan asteriscos
+        cajacontraseña = new JPasswordField();
+        cajacontraseña.setBounds(150, 290, 200, 30);
         add(cajacontraseña);
 
-        setVisible(true);
-
-        JButton btnconfirmar= new JButton("confirmar");
+        JButton btnconfirmar = new JButton("Confirmar");
+        btnconfirmar.setBounds(150, 360, 200, 40);
         add(btnconfirmar);
 
         btnconfirmar.addActionListener(e -> {
             String textpassword = cajacontraseña.getText().trim();
-            String textmatricula =cajamatricula.getText().trim();
+            String textmatricula = cajamatricula.getText().trim();
 
-            // Validar que no envíen campos vacíos
-            if ( textpassword.isEmpty() || textmatricula.isEmpty()) {
+            //revicion
+            if (textpassword.isEmpty() || textmatricula.isEmpty()) {
                 JOptionPane.showMessageDialog(VistaInicioDeSesion.this, "Por favor, complete todos los campos.", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-            VistaMenuGym menuGym = new VistaMenuGym();
-            menuGym.mostrarVentanaGym();
-            /// SI LOS CAMPOS ESTAN COMPLETOS SEDEBE REVISAR EN EL CSV SI ESTA EL USARIO GUARDADO
-            // 2. Trabajo del Controlador (Lo conectaremos a futuro)
-            // Si el código logró esquivar el "return" y llegó hasta esta línea,
-            // significa que las cajas SÍ tienen texto escrito. Aquí llamaremos al Controlador:
-            // miControlador.verificarCredenciales();
 
-
+            // Aquí conectaremos el LoginControlador en el siguiente paso
+            // loginControlador.verificarCredenciales(textmatricula, textpassword);
         });
 
-    }
-    public String getMatriculaIngresada() {
-        return cajamatricula.getText().trim();
+        setVisible(true);
     }
 
-    public String getContrasenaIngresada() {
-        return cajacontraseña.getText().trim();
-    }
+
 }

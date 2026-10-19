@@ -20,7 +20,7 @@ public class VistaLogin extends JFrame {
         JLabel lblTitulo = Herramientas.crearLabels(18, "Bienvenido a campus fit", 135, 20, 300, 40);
         lblTitulo.setForeground(blancoTexto);
         barraSuperior.add(lblTitulo);
-        JLabel logo = Herramientas.crearImagen("/Recursos/logo-gym1.png", 110, 59, 286, 286);
+        JLabel logo = Herramientas.crearImagen("/Recursos/logo-gym3.png", 96, 35, 290, 290);
 
         JButton btnInicio = Herramientas.crearBoton("Inicio de sesión", 150, 280, 200, 40, e-> btnInicio());
         JButton btnRegistro = Herramientas.crearBoton("Registro", 150, 340, 200, 40,e-> btnRegistro() );
@@ -42,7 +42,7 @@ public class VistaLogin extends JFrame {
 
     public void btnInicio(){
         VistaInicioDeSesion btnSesion = new VistaInicioDeSesion();
-        btnSesion.mostrarventaSesion();
+        btnSesion.mostrarVentaSesion();
     }
 
     public void btnRegistro(){

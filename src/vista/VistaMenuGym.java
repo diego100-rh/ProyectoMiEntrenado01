@@ -14,6 +14,7 @@ public class VistaMenuGym extends JFrame {
         setSize(500, 550); // Mantenemos el estándar de "Talla M"
         setResizable(false);
         setLayout(null);
+
         setLocationRelativeTo(null); // Centrado en la pantalla
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,7 +28,7 @@ public class VistaMenuGym extends JFrame {
         barraSuperior.add(lblTitulo);
         add(barraSuperior);
 
-        JLabel logo = Herramientas.crearImagen("/Recursos/logo-gym2.png", 150, 80, 200, 150);
+        JLabel logo = Herramientas.crearImagen("/Recursos/logo-gym1.png", 150, 80, 200, 150);
         add(logo);
 
         btnMiprogreso = Herramientas.crearBoton("Mi Progreso", 150, 260, 200, 40, e -> btnMiprogresoAccion());

@@ -14,7 +14,7 @@ public class VistaProgresoGym extends JFrame {
 
 
         JButton btnmipeso = Herramientas.crearBoton("Registro mi peso", 150, 280, 200, 40, e-> btnmipeso());
-        JButton btnevoFuerza = Herramientas.crearBoton("Registrar mi fuerza", 150, 340, 200, 40,e-> btnevoFuerza() );
+        JButton btnevoFuerza = Herramientas.crearBoton("Registrar evolucion de mi fuerza", 150, 340, 200, 40,e-> btnevoFuerza() );
 
         add(btnevoFuerza);
         add(btnmipeso);
