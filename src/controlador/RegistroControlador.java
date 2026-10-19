@@ -1,7 +1,6 @@
 package controlador;
 import datos.GestorUsuariosCSV;
 import modelo.Usuario;
-import vista.VistaMenuGym;
 import vista.VistaRegistro;
 import javax.swing.JOptionPane;
 import java.util.List;
@@ -34,16 +33,15 @@ public class RegistroControlador {
             // 3. ¡Guardar en base de datos (CSV)!
             gestorCSV.guardarUsuario(nuevoUsuario);
 // CAMBIAR:
-            JOptionPane.showMessageDialog(vista, "¡Registro exitoso! Bienvenido a Campus-Fit.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-            vista.dispose(); // Cierra la ventana de registro
+            JOptionPane.showMessageDialog(
+                    vista,
+                    "¡Registro exitoso! Ahora puedes iniciar sesión con tu matrícula y contraseña.",
+                    "Éxito",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
 
-            // Aquí podemos llamar al controlador de Login o abrir directamente la VistaLogin
-            VistaMenuGym menuGym = new VistaMenuGym();
-            //nota (OPCIONAL PERO RECOMENDADO) Le "inyectamos" el usuario recién creado al menú
-// para que el menú sepa de quién cargar el progreso más adelante.
-// menu.setUsuarioActual(nuevoUsuario);
-
-            menuGym.mostrarVentanaGym();
+// Cierra el registro y deja disponible la ventana de inicio.
+            vista.dispose();
 
         } catch (NumberFormatException ex) {
             // Este catch es un escudo extra: si el usuario escribe "veinte" en lugar de "20" en la edad
