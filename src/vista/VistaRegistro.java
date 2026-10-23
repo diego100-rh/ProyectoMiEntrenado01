@@ -107,7 +107,19 @@ public class VistaRegistro extends JFrame {
             RegistroControlador controlador = new RegistroControlador(VistaRegistro.this);
 
 // Le enviamos todos los textos que recolectamos arriba
-            controlador.procesarRegistro(textuser, textmatricula, textpassword, textEdad, textAltura, textPeso, seleccionSexo);
+            boolean revicionRegistro = controlador.procesarRegistro(textuser, textmatricula, textpassword, textEdad, textAltura, textPeso, seleccionSexo);
+
+            if (revicionRegistro){
+                JOptionPane.showMessageDialog(VistaRegistro.this,
+                    "¡Registro exitoso! Ahora puedes iniciar sesión con tu matrícula y contraseña.",
+                    "Éxito",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+                VistaRegistro.this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(VistaRegistro.this, "Error: La edad, altura y peso deben ser números válidos.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+            }
+
 
         });
         setVisible(true);

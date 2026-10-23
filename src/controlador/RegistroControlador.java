@@ -15,7 +15,7 @@ public class RegistroControlador {
         this.vista = vista;
         this.gestorCSV = new GestorUsuariosCSV();
     }
-    public void procesarRegistro(String nombre, String matricula, String password,
+    public boolean procesarRegistro(String nombre, String matricula, String password,
                                  String edadStr, String alturaStr, String pesoStr, String sexo) {
         try {
             // 1. Transformar los textos a números (porque el JTextField solo entrega Strings)
@@ -32,20 +32,11 @@ public class RegistroControlador {
             // guardar
             // 3. ¡Guardar en base de datos (CSV)!
             gestorCSV.guardarUsuario(nuevoUsuario);
-// CAMBIAR:
-            JOptionPane.showMessageDialog(
-                    vista,
-                    "¡Registro exitoso! Ahora puedes iniciar sesión con tu matrícula y contraseña.",
-                    "Éxito",
-                    JOptionPane.INFORMATION_MESSAGE
-            );
 
-// Cierra el registro y deja disponible la ventana de inicio.
-            vista.dispose();
+            return true;
 
         } catch (NumberFormatException ex) {
-            // Este catch es un escudo extra: si el usuario escribe "veinte" en lugar de "20" en la edad
-            JOptionPane.showMessageDialog(vista, "Error: La edad, altura y peso deben ser números válidos.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+            return false;
         }
     }
 }
