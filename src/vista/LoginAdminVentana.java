@@ -1,19 +1,41 @@
 package vista;
-import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
 
-public class LoginAdminVentana {
+public class LoginAdminVentana extends JFrame {
 
-    public void edicionDeAdmin(Scanner in){
+    private JButton btnRevisarUsuario;
+    private JButton btnEditarEjercicio;
+    private JButton btnCerrarSesion;
 
-        System.out.println("Bienvenido al menu de administracion");
-        System.out.println("Porfavor valide sus credenciales");
+    public void menuAdmin (){
+        setTitle("Menú De administracion - Campus Fit");
+        setSize(500, 550); // Mantenemos el estándar de "Talla M"
+        setResizable(false);
+        setLayout(null);
 
-        System.out.print("Ingresar Matricula: ");
-        String contra = in.next();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getContentPane().setBackground(Color.WHITE);
 
-        System.out.print("Ingresar Contraseña: ");
-        String matricula = in.next();
 
+        btnRevisarUsuario = Herramientas.crearBoton("Mi Progreso", 150, 260, 200, 40, e -> btnbtnRevisarUsuarioAccion());
+        btnEditarEjercicio= Herramientas.crearBoton("Gestor de Rutinas", 150, 320, 200, 40, e -> btnEditarEjercicioAccion());
+        btnCerrarSesion = Herramientas.crearBoton("Cerrar Sesión", 150, 380, 200, 40, e -> btnCerrarSesionAccion());
+
+        add(btnRevisarUsuario);
+        add(btnEditarEjercicio);
+        add(btnCerrarSesion);
+
+        setVisible(true);
 
     }
+    public void btnbtnRevisarUsuarioAccion (){
+
+    }
+
+    public void btnEditarEjercicioAccion(){
+
+    }
+
+    public void btnCerrarSesionAccion(){}
 }

@@ -59,7 +59,15 @@ public class VistaInicioDeSesion extends JFrame {
         String matricula = cajamatricula.getText().trim();
         String contraseña = new String(cajacontraseña.getPassword());
 
-        if (matricula.isEmpty() || contraseña.isEmpty()) {
+        boolean adminVerificacion = controlador.iniciarAdmin(matricula,contraseña);
+        if (adminVerificacion){
+            LoginAdminVentana ventanaAdmin = new LoginAdminVentana();
+            ventanaAdmin.menuAdmin();
+            return;
+        }
+
+
+            if (matricula.isEmpty() || contraseña.isEmpty()) {
             JOptionPane.showMessageDialog(
                     this,
                     "Por favor, complete todos los campos.",
