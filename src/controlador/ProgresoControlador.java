@@ -40,7 +40,7 @@ public class ProgresoControlador {
             );
         } catch (NumberFormatException ex) {
             throw new IllegalArgumentException(
-                    "Ingresa un peso numérico. Por ejemplo: 85,5."
+                    "Ingresar un peso numérico. Por ejemplo: 85,5."
             );
         }
 
